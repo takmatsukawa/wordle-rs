@@ -36,7 +36,7 @@ fn main() {
 
     let mut correct = false;
 
-    for _i in 0..5 {
+    for _i in 0..6 {
         input! {
             chars: Chars
         }
