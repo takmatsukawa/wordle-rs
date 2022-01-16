@@ -4,8 +4,8 @@ A [Wordle](https://www.powerlanguage.co.uk/wordle/) clone built with Rust.
 
 ## TODO
 
-- [] ループ中に入力を取る
-- [] 入力文字列を正誤判定
+- [x] ループ中に入力を取る
+- [x] 入力文字列を正誤判定
 - [] 結果表示
   - [] 文字位置が正解している場合、文字色緑色で表示
   - [] 文字が別の場所に含まれる場合、文字色黄色で表示
@@ -13,3 +13,4 @@ A [Wordle](https://www.powerlanguage.co.uk/wordle/) clone built with Rust.
 - [] 5回挑戦して不正解だったら正答を表示して終了
 - [] 5回の挑戦以内に正答したら終了
 - [] 当てさせる単語をランダムに
+- [] 5文字しか入力できないようにする
