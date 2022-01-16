@@ -1,43 +1,54 @@
+use colored::*;
 use proconio::input;
-use proconio::marker::{Chars};
+use proconio::marker::Chars;
 use std::io::{stdout, Write};
 
 #[derive(Debug)]
 struct Word {
-    word: Vec<char>
+    word: Vec<char>,
 }
 
 impl Word {
-    fn print_diff(&self, word: &Word) {
+    fn print_diff(&self, other: &Word) {
         for (i, char) in self.word.iter().enumerate() {
-            let maybe_correct_char = word.word.get(i);
+            let maybe_correct_char = other.word.get(i);
             match maybe_correct_char {
                 Some(correct_char) => {
                     if char == correct_char {
-                        println!("Correct");
+                        print!("{}", char.to_string().green());
+                    } else if other.word.contains(char) {
+                        print!("{}", char.to_string().yellow());
                     } else {
-                        println!("Incorrect");
+                        print!("{}", char);
                     }
-                },
+                }
                 None => {}
             }
-            // print!("{}", *char);
-            // stdout().flush().unwrap();
         }
-        // print!("\n");
+        println!();
+    }
+    
+    fn eq(&self, other: &Word) -> bool {
+        self.word == other.word
     }
 }
 
 fn main() {
-    let correct_answer = Word { word: ['w', 'o', 'r', 'd', 'l', 'e'].to_vec()};
+    let correct_answer = Word {
+        word: ['w', 'o', 'r', 'd', 'l', 'e'].to_vec(),
+    };
 
     for _i in 0..5 {
         input! {
             chars: Chars
         }
 
-        let input = Word { word: chars};
+        let input = Word { word: chars };
 
         input.print_diff(&correct_answer);
+        if input.eq(&correct_answer) {
+            println!("correct answer!");
+            break;
+        }
     }
 }
