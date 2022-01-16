@@ -32,7 +32,7 @@ impl Word {
 }
 
 fn main() {
-    let correct_answer = Word(['w', 'o', 'r', 'd', 'l', 'e'].to_vec());
+    let correct_answer = Word(['w', 'o', 'r', 'l', 'd'].to_vec());
 
     let mut correct = false;
 
@@ -46,13 +46,13 @@ fn main() {
         print!("{}", EraseLines(2));
         input.print_diff(&correct_answer);
         if input.eq(&correct_answer) {
-            println!("correct answer!");
+            println!("Genius");
             correct = true;
             break;
         }
     }
 
     if !correct {
-        println!("Answer is {}", correct_answer.0.into_iter().collect::<String>());
+        println!("{}", correct_answer.0.into_iter().collect::<String>());
     }
 }
