@@ -1,6 +1,7 @@
 use colored::*;
 use proconio::input;
 use proconio::marker::Chars;
+use ansi_escapes::{EraseLines};
 
 #[derive(Debug)]
 struct Word(Vec<char>);
@@ -42,6 +43,7 @@ fn main() {
 
         let input = Word(chars);
 
+        print!("{}", EraseLines(2));
         input.print_diff(&correct_answer);
         if input.eq(&correct_answer) {
             println!("correct answer!");
