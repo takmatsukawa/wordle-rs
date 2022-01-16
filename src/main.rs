@@ -1,7 +1,6 @@
 use colored::*;
 use proconio::input;
 use proconio::marker::Chars;
-use std::io::{stdout, Write};
 
 #[derive(Debug)]
 struct Word {
@@ -38,6 +37,8 @@ fn main() {
         word: ['w', 'o', 'r', 'd', 'l', 'e'].to_vec(),
     };
 
+    let mut correct = false;
+
     for _i in 0..5 {
         input! {
             chars: Chars
@@ -48,7 +49,12 @@ fn main() {
         input.print_diff(&correct_answer);
         if input.eq(&correct_answer) {
             println!("correct answer!");
+            correct = true;
             break;
         }
+    }
+
+    if !correct {
+        println!("Answer is {}", correct_answer.word.into_iter().collect::<String>());
     }
 }
